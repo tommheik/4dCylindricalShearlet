@@ -18,7 +18,7 @@ if ismatrix(F) || ndims(F) > 4
     error('F is meant to be 4D (or 3D) array!')
 end
 if ndims(g) ~= 3
-    error('g must be 3D array, not %d D!',ndims(3));
+    error('g must be 3D array, not %d D!',ndims(g));
 end
 szF = size(F); % F is already extended so we can use these dimensions
 szg = size(g); % To revert the extension we can use original size of g
