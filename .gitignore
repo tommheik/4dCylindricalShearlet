@@ -1,10 +1,10 @@
 BP/.DS_Store
-4DShearTrans/cylfft3.m
-4DShearTrans/CylShearAdj4Dpar.m
-4DShearTrans/CylShearAdj4Dgpu.m
-4DShearTrans/CylShearDec4Dgpu.m
-4DShearTrans/CylShearDec4Dpar.m
-4DShearTrans/icylfft3.m
+4dCylShearTrans/cylfft3.m
+4dCylShearTrans/CylShearAdj4Dpar.m
+4dCylShearTrans/CylShearAdj4Dgpu.m
+4dCylShearTrans/CylShearDec4Dgpu.m
+4dCylShearTrans/CylShearDec4Dpar.m
+4dCylShearTrans/icylfft3.m
 speedTest_GetMeyerBasedFilter.m
 speedTest_PointwiseMultiply.m
 util
