@@ -16,7 +16,8 @@ f = 0.5*hypercube([N N N T]);
 %% 2. Set up the cyl-shearlet system
 
 addpath('../BP'); % Laplace pyramid (bandpass) codes
-addpath('../4DShearTrans'); % Shearlet transforms
+addpath('../4dCylShearTrans'); % Cylindrical shearlet transforms
+addpath('../dirFilters'); % Directional filters
 
 level = 3; % Level of shearlet decomposition
 dBand = 2.^(ceil((level+1:-1:2)'/2)+1); % Number of shearing directions per level
