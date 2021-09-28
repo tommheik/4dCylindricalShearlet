@@ -10,11 +10,6 @@ tic
 N = 32; % Spatial (X, Y, Z) resolution
 T = 16; % Temporal resolution
 
-% Create a dynamic Shepp-Logan phantom
-% addpath('G:\DynamicCT\simulated data');
-% [~, f] = dynamicSheppLogan(N,1,T,15);
-% rmpath('G:\DynamicCT\simulated data');
-
 % Create 4D object made of random cube-regions
 f = 0.5*hypercube([N N N T]);
 
@@ -38,7 +33,7 @@ dataClass = 'single';
 
 % Perform the Laplace pyramid decomposition
 smooth_func = @rcos;
-Pyr_mode = 1; %1; % This determines suitable input sizes!
+Pyr_mode = 1; % This determines suitable input sizes!
 BP = PyrNDDec_mm(f, 'S', level, Pyr_mode, smooth_func);
 % Note that the output is in 'S'patial domain in order to properly size the
 % BP data and the filters F for FFT-type convolution.
@@ -65,13 +60,17 @@ BPadj = CylShearAdj4D(coeff,F);
 adj = PyrNDRec_mm(BPadj, 'S', Pyr_mode, smooth_func);
 
 %% n. Total time
-totTime = toc
+totTime = toc;
+fprintf('Forward, inverse and adjoint transforms performed in %1.1f s, (%ix%ix%ix%i data). \n',...
+    totTime, N, N, N, T);
 
-errRec = norm(f(:)-rec(:))
+errRec = norm(f(:)-rec(:))/norm(f(:));
+fprintf('Relative reconstruction error is %d. (%s precision) \n',...
+    errRec, dataClass);
 
 %% n + 1. Compare inner products
-% Note that this should be done with two random elements instead of just f
-% and SHf.
+% Note that to properly test the adjoint we should use a random cylindrical
+% shearlet domain vector instead of S(f).
 ipSpat = dot(f(:),adj(:));
 ipSh = 0;
 for l = 1:level+1
