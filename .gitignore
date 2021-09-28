@@ -2,3 +2,4 @@ BP/.DS_Store
 speedTest_GetMeyerBasedFilter.m
 speedTest_PointwiseMultiply.m
 util
+.gitignore
