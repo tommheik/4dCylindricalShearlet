@@ -1,12 +1,10 @@
-%% function [X,Y,Z,D]= GenerateXYZ(n)
+%% function [X,Y,Z]= GenerateXYZ(n)
 %% Generates the XYZ coordiante of Polar Grid in Cartesian Grid
 %% Input: 
 %%      n: size of the cubic box .
 %% Output: X,Y,Z: coordinate of polar grid in cartesian grid.
 %%        i.e X(i,k,j),Y(i,k,j),Z(i,k,j) contain cartesian coordinate of
 %%        polar point(i,k,j)
-%%        D: number of time polar grid point go rhough same cartesian grid
-%%        point
 %% 
 
 function [X,Y,Z]= GenerateXYZ(n)

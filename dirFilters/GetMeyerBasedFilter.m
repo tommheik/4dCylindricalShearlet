@@ -40,8 +40,7 @@ for l=1:level
         numDir(2) = numDir;
     end
 
-    % Split the Fourier domain into pairs of pyramids. The array of repeated
-    % indicies is not used (originally given by PolarToRec using PolFreq).
+    % Split the Fourier domain into pairs of pyramids.
     P = GeneratePyramidSection(cubeSize);
     shift = floor(cubeSize ./ numDir);
 
