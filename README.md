@@ -27,4 +27,4 @@ D. Young. "Extended array indexing" (2010). *MATLAB Central File Exchange*, (htt
 
 ### ToDo
 
-Many files have unnecessary and commented sections which should be cleaned. Also some functions are missing their original authors.
+Some functions are missing their original authors.
