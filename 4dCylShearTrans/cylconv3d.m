@@ -12,7 +12,7 @@ function z = cylconv3d(F, g, outSz)
 %   z       : Convolution of size outSz, real valued 3D or 4D array and 
 %             in the spatial domain.
 % 
-% T H   2021
+% T. Heikkilä   2021
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if ismatrix(F) || ndims(F) > 4
     error('F is meant to be 4D (or 3D) array!')
