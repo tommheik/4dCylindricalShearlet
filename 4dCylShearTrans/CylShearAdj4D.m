@@ -20,7 +20,7 @@ function BP = CylShearAdj4D(coeff, F)
 % OUTPUT
 %  BP       : Spatial 4D bandpass data at predetermined level. 
 %
-% T H   2021
+% T. Heikkilä   2021
 
 % Error checks
 dataClass = class(coeff{1});
@@ -62,7 +62,7 @@ for l = 1:L
         % Cylindrical 3D FFT
         C = fft(fft(fft(layer,[],1),[],2),[],3);
         
-        % Convolve first 3 dimensions againt a filter F
+        % Convolve first 3 dimensions against a filter F
         layer = cylconv3d(C,F{l}(:,:,:,fi),szCoeff(1:3));
         % Sum up each layer of the level
         BP{l} = BP{l} + layer;
