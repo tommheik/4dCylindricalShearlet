@@ -1,7 +1,7 @@
 function C = hypercube(varargin)
 %HYPERCUBE creates N-dimensional array of randomized cube-regions
 %
-% T H   2021
+% T. Heikkilä   2021
 
 % Input is very flexible. First input gives the size of the hypercube.
 if nargin < 1 % Default to 4D cube of size 16^4
