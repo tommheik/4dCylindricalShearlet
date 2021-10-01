@@ -15,7 +15,7 @@ function BP = CylShearRec4D(coeff)
 % OUTPUT
 %  BP       : Spatial 4D bandpass data at predetermined level. 
 %
-% T H   2021
+% T. Heikkilä   2021
 
 L = length(coeff)-1;
 sum5 = @(x) sum(x,5);
