@@ -17,7 +17,7 @@ function coeff = CylShearDec4D(BP, F)
 %  coeff    : 4D Cylindrical shearlet coefficients organized like F into
 %             5D arrays for each level (except for level + 1 which is 4D).
 %
-% T H   2021
+% T. Heikkilä   2021
 %
 
 %%% Basic error checks
