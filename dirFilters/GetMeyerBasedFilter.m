@@ -15,7 +15,7 @@
 % This is a slightly modified version of the GetMeyerBasedFilter function
 % created for the 3D Shearlet Transform by P. Negi and D. Labate
 %
-% T H   2021
+% T. Heikkilä   2021
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [F, FIndex] = GetMeyerBasedFilter(level,dBand,filterSize,dataClass)
