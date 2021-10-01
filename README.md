@@ -1,8 +1,10 @@
 # 4dCylindricalShearlet
 ## 4d Cylindrical Shearlet Transform, Inverse and Adjoint for Matlab
 
-**Used for the numerical tests in**:  
+**Detailed construction and numerical tests in**:  
 T. A. Bubba, G. Easley, T. Heikkilä, D. Labate and J. P. Rodriguez Ayllon. "Efficient representation of spatio-temporal data using cylindrical shearlets" (2021). *Pre-Preprint*.
+
+**Please cite the above article if you use these codes in your own projects.**
 
 ### Contents
 
@@ -34,4 +36,4 @@ D. Young. "Extended array indexing" (2010). *MATLAB Central File Exchange*, (htt
 
 ### ToDo
 
-Some functions are still missing their original authors.
+Some functions in dirFilters -folder are still missing their original authors.
