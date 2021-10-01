@@ -1,6 +1,6 @@
 % Test file for 4D cylindrical shearlets.
 % 
-% T H    2021
+% T. Heikkilä    2021
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 clear all
 close all
