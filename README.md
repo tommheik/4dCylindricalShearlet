@@ -2,7 +2,7 @@
 ## 4d Cylindrical Shearlet Transform, Inverse and Adjoint for Matlab
 
 **Detailed construction and numerical tests in**:  
-T. A. Bubba, G. Easley, T. Heikkilä, D. Labate and J. P. Rodriguez Ayllon. "Efficient representation of spatio-temporal data using cylindrical shearlets" (2021). *Pre-Preprint*.
+T. A. Bubba, G. Easley, T. Heikkilä, D. Labate and J. P. Rodriguez Ayllon. "Efficient representation of spatio-temporal data using cylindrical shearlets" (2021). *Submitted*.
 
 **Please cite the above article if you use these codes in your own projects.**
 
