@@ -23,12 +23,8 @@ end
 szF = size(F); % F is already extended so we can use these dimensions
 szg = size(g); % To revert the extension we can use original size of g
 
-% Zero-extend g
-gExt = zeros(szF(1:3));
-gExt(1:szg(1),1:szg(2),1:szg(3)) = g;
-
-% Fourier transform gExt
-g = fftn(gExt);
+% Zero-pad and Fourier transform g
+G = fftn(g, szF(1:3));
 
 % Pointwise multiply (corresponds to spatial convolution). Then inverse
 % Fourier transform with respect to the first 3 dimensions.
@@ -42,7 +38,7 @@ n1 = szg(1) + (1:outSz(1));
 n2 = szg(2) + (1:outSz(2));
 n3 = szg(3) + (1:outSz(3));
 
-H = F .* g; % Pointwise multiply (dimensions of F and G can be different)
+H = F .* G; % Pointwise multiply (dimensions of F and G can be different)
 if ndims(H) == 3 % F is 3D
     F = ifftn(H,'symmetric');
 else             % F is 4D

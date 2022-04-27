@@ -7,7 +7,7 @@ close all
 tic
 
 %% 1. Set up the target object
-N = 32; % Spatial (X, Y, Z) resolution
+N = 48; % Spatial (X, Y, Z) resolution
 T = 16; % Temporal resolution
 
 % Create 4D object made of random cube-regions
@@ -22,7 +22,7 @@ addpath('../dirFilters'); % Directional filters
 level = 3; % Level of shearlet decomposition
 dBand = 2.^(ceil((level+1:-1:2)'/2)+1); % Number of shearing directions per level
 % The number of directions can also be two values for K1 and K2 (per level)
-filterSize = 24*ones(1,level);
+filterSize = [24, 24, 12]; % 24*ones(1,level);
 dataClass = 'single';
 
 %% 3. Generate filters
@@ -34,7 +34,7 @@ dataClass = 'single';
 
 % Perform the Laplace pyramid decomposition
 smooth_func = @rcos;
-Pyr_mode = 1; % This determines suitable input sizes!
+Pyr_mode = 2; % This determines suitable input sizes!
 BP = PyrNDDec_mm(f, 'S', level, Pyr_mode, smooth_func);
 % Note that the output is in 'S'patial domain in order to properly size the
 % BP data and the filters F for FFT-type convolution.

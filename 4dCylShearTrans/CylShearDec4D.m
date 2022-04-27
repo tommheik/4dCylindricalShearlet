@@ -1,4 +1,4 @@
-function coeff = CylShearDec4D(BP, F)
+function coeff = CylShearDec4Dold(BP, F)
 %CYLSHEARDEC4D performs the 4D cylindrical shearlet decomposition.
 %   CylShearDec4D is the function for the corresponding decomposition. The
 %   bandpass data BP is decomposed at given level using Meyer filters F
@@ -46,10 +46,9 @@ for l = 1:level
     % Since each filter is of identical size the FFT of BP can be
     % precomputed for efficiency.
     exSize = szF + szBP(1:3) - 1; % Extended size for no overlap
-    % Zero-extend 4D BP layer in the first 3 dimensions.
-    exBP = exindex(BP{l}, 1:exSize(1), 1:exSize(2), 1:exSize(3), ':', {0});
-    % Cylindrical 3D FFT
-    exBP = fft(fft(fft(exBP,[],1),[],2),[],3);
+    % Zero-pad and Cylindrical 3D FFT
+    exBP = fft(fft(fft(BP{l},exSize(1),1),exSize(2),2),exSize(3),3);
+    
     
     for fi = 1:numF % Loop through all filters.
         % "Convolve" (using FFT) the bandpass layer with each filter F.

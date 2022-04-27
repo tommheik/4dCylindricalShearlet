@@ -211,6 +211,9 @@ for l=1:level
     %%% the spatial domain.
     for fi = 1:length(FIndex{l}(:))
         tmpFilter = F{l}(:,:,:,fi) ./ A;
+        % A can contain zeros which is a problem
+        tmpFilter(A == 0) = 0;
+        
         % Q: What is the point of the outer fftshift?
         F{l}(:,:,:,fi) = squeeze(fftshift(ifftn(fftshift(tmpFilter),'symmetric')));
     end

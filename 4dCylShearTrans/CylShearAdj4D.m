@@ -20,7 +20,7 @@ function BP = CylShearAdj4D(coeff, F)
 % OUTPUT
 %  BP       : Spatial 4D bandpass data at predetermined level. 
 %
-% T. Heikkilä   2021
+% T. Heikkilä   2022
 
 % Error checks
 dataClass = class(coeff{1});
@@ -53,20 +53,31 @@ for l = 1:L
     % Precomputing FFT doesn't help but this way we can use the same
     % cylindrical convolution function as in decomposition.
     exSize = szF + szCoeff(1:3) - 1; % Extended size for no overlap
-    % Zero-extend all 4D coeff layers in the first 3 dimensions. (Coeff is
-    % 5D array)
-    exCoeff = exindex(coeff{l}, 1:exSize(1), 1:exSize(2), 1:exSize(3), ':', ':', {0});
+    
+    % We revert the extension and cut the output to size
+    offset = floor(szF/2);
+    n1 = offset(1) + (1:szCoeff(1));
+    n2 = offset(2) + (1:szCoeff(2));
+    n3 = offset(3) + (1:szCoeff(3));
+    
+    % Initialize H
+    H = complex(zeros(exSize(1:3),'single'));
     
     for fi = 1:numF % Loop through all filters.
-        layer = exCoeff(:,:,:,:,fi); % 4D coefficient array
-        % Cylindrical 3D FFT
-        C = fft(fft(fft(layer,[],1),[],2),[],3);
+        % Cylindrical 3D FFT of coefficient array
+        C = fft(fft(fft(coeff{l}(:,:,:,:,fi),exSize(1),1),exSize(2),2),exSize(3),3);
         
-        % Convolve first 3 dimensions against a filter F
-        layer = cylconv3d(C,F{l}(:,:,:,fi),szCoeff(1:3));
-        % Sum up each layer of the level
-        BP{l} = BP{l} + layer;
+        % Cylindrical 3D FFT of a filter
+        G = fftn(F{l}(:,:,:,fi),exSize(1:3));
+        
+        % Pointwise multiply (corresponds to spatial convolution). Since
+        % Fourier transform is linear we can first take the sum
+
+        H =  H + G .* C; % Pointwise multiply (dimensions of F and G can be different)
     end % fi (filterIndex)
+    
+    h = ifft(ifft(ifft(H,[],3),[],2),[],1,'symmetric');
+    BP{l} = h(n1,n2,n3,:); % Remove extension
 end % l (decomposition level)
 end
 
