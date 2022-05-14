@@ -1,4 +1,4 @@
-function coeff = CylShearDec4Dold(BP, F)
+function coeff = CylShearDec4D(BP, F)
 %CYLSHEARDEC4D performs the 4D cylindrical shearlet decomposition.
 %   CylShearDec4D is the function for the corresponding decomposition. The
 %   bandpass data BP is decomposed at given level using Meyer filters F

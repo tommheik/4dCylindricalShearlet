@@ -42,19 +42,29 @@ end
 % Generate smaller array
 M = 2*ones(1,dim);
 for d = 1:dim
-    if rem(SZ(dim),12) == 0 % Divisible by 12
-        M(dim) = randi(3,1)+1; % Pick randomly from 2,3 and 4
+    if rem(SZ(d), 32) == 0 % Divisible by 32
+        M(d) = 2.^(randi(4,1)); % Pick randomly from 2, 4, 8 and 16
         
-    elseif rem(SZ(dim),6) == 0 % Divisible by 6
-        M(dim) = randi(2,1)+1; % Pick randomly from 2 and 3
+    elseif rem(SZ(d), 20) == 0 % Divisible by 20
+        opt = [20, 10, 5, 4];
+        M(d) = opt(randi(length(opt), 1)); % Pick randomly from 20, 10 5 and 4
         
-    elseif rem(SZ(dim),4) == 0 % Divisible by 4
-        M(dim) = 2*randi(2,1); % Pick randomly from 2 and 4
+    elseif rem(SZ(d), 16) == 0 % Divisible by 16
+        M(d) = 2.^(randi(3,1)); % Pick randomly from 2, 4 and 8
         
-    elseif rem(SZ(dim),3) == 0 % Divisible by 3
-        M(dim) = 3;            % Pick 3
+    elseif rem(SZ(d),12) == 0 % Divisible by 12
+        M(d) = randi(3,1)+1; % Pick randomly from 2,3 and 4
+        
+    elseif rem(SZ(d),6) == 0 % Divisible by 6
+        M(d) = randi(2,1)+1; % Pick randomly from 2 and 3
+        
+    elseif rem(SZ(d),4) == 0 % Divisible by 4
+        M(d) = 2*randi(2,1); % Pick randomly from 2 and 4
+        
+    elseif rem(SZ(d),3) == 0 % Divisible by 3
+        M(d) = 3;            % Pick 3
     else
-        M(dim) = randi(2,1)+1; % Pick randomly from 2 and 3
+        M(d) = randi(2,1)+1; % Pick randomly from 2 and 3
     end
 end
 sz = floor(SZ./M);

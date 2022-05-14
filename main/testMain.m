@@ -7,11 +7,11 @@ close all
 tic
 
 %% 1. Set up the target object
-N = 48; % Spatial (X, Y, Z) resolution
+N = 64; % Spatial (X, Y, Z) resolution
 T = 16; % Temporal resolution
 
 % Create 4D object made of random cube-regions
-f = 0.5*hypercube([N N N T]);
+f = 0.5*hypercube([N N N T]) + 0.2*rand(N, N, N, T, 'single');
 
 %% 2. Set up the cyl-shearlet system
 
@@ -20,7 +20,7 @@ addpath('../4dCylShearTrans'); % Cylindrical shearlet transforms
 addpath('../dirFilters'); % Directional filters
 
 level = 3; % Level of shearlet decomposition
-dBand = 2.^(ceil((level+1:-1:2)'/2)+1); % Number of shearing directions per level
+dBand = 2.^ceil((level+1:-1:2)'/2); % Number of shearing directions per level
 % The number of directions can also be two values for K1 and K2 (per level)
 filterSize = [24, 24, 12]; % 24*ones(1,level);
 dataClass = 'single';
