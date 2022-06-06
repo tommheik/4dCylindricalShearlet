@@ -58,6 +58,8 @@ tempChanges = [     skipSkips(linspace(1, 1.5, Ttotal),   Tind(:))             %
             .55+0.45*cos(skipSkips(linspace(-.33*pi,1.66*pi,Ttotal),Tind(:)))];% Periodic (phase = -.33*pi)
     
 for j = 1:size(e,1)
+    % phantom3d.m is part of tomobox by Jakob Heide Jørgensen:
+    % https://se.mathworks.com/matlabcentral/fileexchange/28496-tomobox
     blop = phantom3d(N, e(j,:));
     Pfull = Pfull + blop .* tempChanges(j,:,:,:);
     
