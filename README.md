@@ -10,7 +10,7 @@ T. A. Bubba, G. Easley, T. Heikkilä, D. Labate and J. P. Rodriguez Ayllon. "Eff
 
 **Root**: Readme and license files and the following 4 folders.
 
-**main**: Simple test script `testMain.m` to try some of the properties, including forming the directional filters and computing forward, inverse and adjoint transforms of a simple 4d object. `hypercube.m` is a helper function for creating a semi-random 4d phantom.
+**main**: Simple test script `testMain.m` to try some of the properties, including forming the directional filters and computing forward, inverse and adjoint transforms of a simple 4d object. `hypercube.m` is a helper function for creating a semi-random 4d phantom. `cartoonPhantom.m` is the custom ellipsoid phantom used for the dynamic tomography tests.
 
 **BP**: Short for bandpass, this folder contains the necessary routines and functions to perform the Laplacian pyramid decomposition and its inverse (reconstruction).
 
