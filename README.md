@@ -23,7 +23,8 @@ T. A. Bubba, G. Easley, T. Heikkilä, D. Labate and J. P. Rodriguez Ayllon. "Eff
 **Decomposition, inverse and adjoint transforms, and extension of (pseudo)4d directional filters by Tommi Heikkilä.**
 
 **This work is based on the 3d Cylindrical Shearlet implementation by Glenn Easley**:  
-G. Easley, K. Guo, D. Labate and B. Pahari. "Optimally sparse representation of cartoon-like cylindrical data" (2020). *The Journal of Geometric Analysis*, pages 1-21.
+G. Easley, K. Guo, D. Labate and B. Pahari. "Optimally sparse representation of cartoon-like cylindrical data" (2020). *The Journal of Geometric Analysis*, pages 1-21.  
+Matlab implementation of the 3d cylindrical shearlet transform is available [here](https://github.com/tommheik/3d_cylind_shear).
 
 **Generation of 3d Meyer-like directional filters by Pooran Negi, with contributions of D. Labate**:  
 P. Negi and D. Labate. "3-d discrete shearlet transform and video processing" (2021). *IEEE transactions on Image Processing*, 21(6):2944-2954.
